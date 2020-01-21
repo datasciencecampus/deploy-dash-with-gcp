@@ -121,19 +121,19 @@ entrypoint: gunicorn -b 0.0.0.0:8000 main:app.server
 
 This file tells GCP how to create the application. The first line specifies we want to build using python, the last line must replicate what is at the end of `main.py` (the host and port numbers), as well as what you call the python script (here `main.py` = `main`). This is the most likely file to corrupt a build.
 
-## Deploy your app to Google Cloud Platform
+## 2. Deploy your app to Google Cloud Platform
 
 This guide builds on other guides such as [Jamie Phillips'](https://www.phillipsj.net/posts/deploying-dash-to-google-app-engine/). However, we were not able to successfully deploy a dash app following Jamie's, or others, examples without heavy tweaks. We also include additional python functions to load data in our example here (Goodbye, World).
 
 The following steps are to deploy a dash application to GCP. If your app doesn't work locally, you should fix that first as it won't work on GCP (even if you pray real hard). If it works locally, but it doesn't deploy, the majority of the time it will be due to the `app.yaml` file.
 
-### Make a project on GCP
+### 2.1 Make a project on GCP
 
 Using the CLI or the Console Interface online (which we use below), create a new project with a suitable project name (here we call it `dash-example`).
 
 <p align="center"><img align="center" src="images/new_project.png" width="400px"></p>
 
-## Make yourself the owner of project
+## 2.2 Make yourself the owner of project
 
 Make sure the project you've just created is selected on the console, then click 'ADD PEOPLE TO THIS PROJECT'.
 
@@ -145,7 +145,7 @@ Then input your user name and set the role to `Project` > `Owner`.
 
 That's it for now on the Google Cloud Platform Console.
 
-## Deploy using gcloud command line tool
+## 2.3 Deploy using gcloud command line tool
 
 If you haven't installed the [gcloud command line tool](https://cloud.google.com/sdk/gcloud/) do so now.
 
@@ -179,6 +179,6 @@ If you have setup your configuration correctly then it will deploy the dash app 
 
 This example is at [https://dash-example-265811.appspot.com/](https://dash-example-265811.appspot.com/) for example.
 
-## To Do
+## 3. To Do
 
 Next, we will write a guide on how to load data from the cloud, instead of locally.
