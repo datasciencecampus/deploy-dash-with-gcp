@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+
+.container.scalable {
+    width: 95%;
+    max-width: none;
+}
+
+@media print {
+    body {-webkit-print-color-adjust: exact;}
+}
+
+/* Remove Undo
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+._dash-undo-redo {
+    display: none;
+}
+
+
+@media screen {
+
+    .banner Img {
+        height: 5rem;
+        margin-bottom: 1rem;
+    }
+
+        #instructions {
+        font-size: 2rem;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        color: #001d4d;
+        margin: 0rem 0rem 2rem ;
+    }
+ }
+
+@media print {
+
+    #instructions {
+        font-size: 2rem;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        color: #001d4d;
+        margin: 0rem 0rem 2rem ;
+    }
+}
+
