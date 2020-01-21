@@ -20,7 +20,7 @@ Important files:
 
 <p align="center"><img align="center" src="images/dash_app.png" width="800px"></p>
 
-### 1.1 A better explination of this dash app
+### 1.1 A better explanation of this dash app
 
 #### 1.1.1 main.py
 
