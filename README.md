@@ -178,3 +178,7 @@ If you have setup your configuration correctly then it will deploy the dash app 
 <p align="center"><img align="center" src="images/dash_app.png" width="800px"></p>
 
 This example is at [https://dash-example-265811.appspot.com/](https://dash-example-265811.appspot.com/) for example.
+
+## To Do
+
+Next, we will write a guide on how to load data from the cloud, instead of locally.
