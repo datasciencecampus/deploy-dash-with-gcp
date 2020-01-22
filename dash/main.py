@@ -3,7 +3,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
 import os
+from io import StringIO
 
+from data.dataDownloader import GCPDownloader
 
 # -------------------------- PYTHON FUNCTIONS ---------------------------- #
 
@@ -19,20 +21,29 @@ def multiply_numbers(first_num,second_num):
 
 def build_banner():
     return html.Div(
-        id="banner",
-        className="banner",
+        id='banner',
+        className='banner',
         children=[
-            html.Img(src=app.get_asset_url("dsc-logo2.png")),
+            html.Img(src=app.get_asset_url('dsc-logo2.png')),
         ],
     )
 
 
 # -------------------------- LOAD DATA ---------------------------- #
 
+# local data
+# data = os.path.join('data/data.csv')
 
-csv_files_path = os.path.join('data/data.csv')
+# cloud data
+project_name = 'dash-example-265811.appspot.com'
+folder_name = 'data'
+file_name = 'data.csv'
+GCP = GCPDownloader()
+bytes_file = GCP.getData(project_name, folder_name, file_name)
+s = str(bytes_file,'utf-8')
+data = StringIO(s)
 
-data_df = pd.read_csv(csv_files_path)
+data_df = pd.read_csv(data)
 
 add_num_list = []
 multiply_num_list = []
@@ -77,7 +88,7 @@ app.layout = html.Div(children=[
         children=[
             build_banner(),
             html.P(
-                id="instructions",
+                id='instructions',
                 children=dash_text),
             ]
     ),
@@ -102,4 +113,5 @@ app.layout = html.Div(children=[
 
 
 if __name__ == '__main__':
+    load_data_source = 'local'
     app.run_server(host='0.0.0.0', port=8000, debug=True)

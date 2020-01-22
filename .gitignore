@@ -119,3 +119,4 @@ venv.bak/
 data/
 scripts/key/
 output/aligned_images
+data/key/*
