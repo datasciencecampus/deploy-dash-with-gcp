@@ -1,3 +1,6 @@
 runtime: python
 env: flex
-entrypoint: gunicorn -b 0.0.0.0:8000 main:app.server
+entrypoint: gunicorn -b 0.0.0.0:8000 main:server
+
+runtime_config:
+    python_version: 3

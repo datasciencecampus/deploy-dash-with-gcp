@@ -20,3 +20,6 @@ __pycache__/
 
 # images
 /images/*
+
+# key
+data/key/*
