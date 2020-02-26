@@ -2,10 +2,8 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
-from io import StringIO
 import os
 
-from data.dataDownloader import GCPDownloaderLocal, GCPDownloaderCloud
 
 # -------------------------- PYTHON FUNCTIONS ---------------------------- #
 
@@ -31,23 +29,10 @@ def build_banner():
 
 # -------------------------- LOAD DATA ---------------------------- #
 
-# run local data locally
-data = os.path.join('dash/data/data.csv')
 
-# # cloud data
-# project = 'dash-example-265811'
-# project_name = 'dash-example-265811.appspot.com'
-# folder_name = 'data'
-# file_name = 'data.csv'
-#
-# GCP = GCPDownloaderLocal() # run locally
-# # GCP = GCPDownloaderCloud() # run on cloud
-#
-# bytes_file = GCP.getData(project, project_name, folder_name, file_name)
-# s = str(bytes_file, encoding='utf-8')
-# data = StringIO(s)
+csv_files_path = os.path.join('data/data.csv')
 
-data_df = pd.read_csv(data)
+data_df = pd.read_csv(csv_files_path)
 
 add_num_list = []
 multiply_num_list = []
@@ -77,11 +62,6 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets, assets_folder='assets')
 server = app.server
 
-# Since we're adding callbacks to elements that don't exist in the app.layout,
-# Dash will raise an exception to warn us that we might be
-# doing something wrong.
-# In this case, we're adding the elements through a callback, so we can ignore
-# the exception.
 app.config.suppress_callback_exceptions = True
 
 
@@ -118,4 +98,4 @@ app.layout = html.Div(children=[
 
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8000, debug=True)
+    app.run_server(host='0.0.0.0', port=8080, debug=True, use_reloader=False)
