@@ -116,7 +116,6 @@ venv.bak/
 .mypy_cache/
 
 # Directories
-data/
-scripts/key/
+*.json
 output/aligned_images
 data/key/*
